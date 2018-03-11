@@ -6,7 +6,7 @@ class Input extends React.Component{
 
     this.state = {
       description: "",
-      date:"",
+      date: "",
       amount:0,
       type:"Other"
     };
@@ -17,14 +17,30 @@ class Input extends React.Component{
   }
 
   handleSubmit(event){
+    event.preventDefault();
+
+    this.props.transactionReceiver = this.state;
 
   }
 
   handleChange(event){
+    let name = event.target.name;
+    let content = event.target.value;
 
+    this.setState({[name]: content});
   }
 
   render(){
+
+    let buttonVisibility;
+
+    if (this.state.description != "" && this.state.date != "" && this.state.amount !== 0){
+      buttonVisibility = "visible";
+    } else {
+      buttonVisibility = "hidden";
+    }
+
+
     return(
       <div>
         <form className="expense-input-form" onSubmit={this.handleSubmit}>
@@ -64,7 +80,7 @@ class Input extends React.Component{
 
           </select>
 
-          <button className="submit-btn" type="submit">Book transaction</button>
+          <button style={{visibility:buttonVisibility}} className="submit-btn" type="submit">Book transaction</button>
         </form>
       </div>
     );
