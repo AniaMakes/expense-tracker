@@ -6,10 +6,15 @@ class App extends React.Component {
     super();
   }
 
+  bookTransaction(incomingTransaction){
+    console.log("I've made it to bookTransaction");
+    console.log(incomingTransaction);
+  }
+
   render(){
     return (
       <div>
-        <Input transactionReceiver=""/>
+        <Input transactionReceiver={this.bookTransaction}/>
       </div>
     );
   }

@@ -19,7 +19,7 @@ class Input extends React.Component{
   handleSubmit(event){
     event.preventDefault();
 
-    this.props.transactionReceiver = this.state;
+    this.props.transactionReceiver(this.state);
 
   }
 
