@@ -21,6 +21,12 @@ class Input extends React.Component{
 
     this.props.transactionReceiver(this.state);
 
+    this.setState({
+      description: "",
+      date: "",
+      amount:0,
+      type:"Other"
+    });
   }
 
   handleChange(event){
