@@ -12,7 +12,7 @@ class Transaction extends React.Component{
     const {description, date, amount, type} = this.props;
 
     return(
-      <div>
+      <div className="transaction">
         <p>{description}</p>
         <p>{date}</p>
         <p>{amount}</p>

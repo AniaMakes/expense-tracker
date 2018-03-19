@@ -25,6 +25,11 @@ class App extends React.Component {
     this.setState({
       id: this.state.id + 1
     });
+
+    let toHistory = JSON.stringify({"history" : this.state.transactionHistory});
+
+    localStorage.setItem("memory", toHistory);
+
   }
 
   render(){

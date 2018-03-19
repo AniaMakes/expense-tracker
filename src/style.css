@@ -1,0 +1,4 @@
+.transaction{
+  display: flex;
+  flex-direction: row;
+}
