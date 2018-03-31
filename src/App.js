@@ -48,44 +48,7 @@ class App extends React.Component {
     console.log(incomingTransaction);
 
     this.updateHistory(this.obtainIdToUseForIncomingTransaction(), incomingTransaction);
-    // if(objectTransactionsFromMemory){
-    //     let last = 0;
-    //     if(objectTransactionsFromMemory.history.length > 1){
-    //         objectTransactionsFromMemory.history.sort(function(a,b){
-    //             const alpha = a.key;
-    //             const bravo = b.key;
-    //             return alpha - bravo;
-    //         });
-    //
-    //         last = objectTransactionsFromMemory.history[objectTransactionsFromMemory.history.length-1].key;
-    //     }
-    //     console.log('1 ', this.state);
-    //     console.log(last + 1);
-    //     const newId = last + 1;
-    //     this.setState({
-    //         id: newId
-    //     });
-    //
-    //     console.log('2 ', this.state);
-    // } else {
-    // let objectTransactionsFromMemory = this.fetchTransactionsFromMemory();
-    //
-    // if (!objectTransactionsFromMemory) {
-    //     objectTransactionsFromMemory = {history : []};
-    // }
-    // // }
-    // console.log(objectTransactionsFromMemory);
-    // // console.log('3 ', this.state);
-    // incomingTransaction.key = this.obtainIdToUseForIncomingTransaction();
-    // objectTransactionsFromMemory.history.push(incomingTransaction);
-    //
-    //
-    // // this.setState({
-    // //   id: this.state.id + 1
-    // // });
-    //
-    // let toHistory = JSON.stringify({"history" : objectTransactionsFromMemory.history});
-    // localStorage.setItem("memory", toHistory);
+    this.forceUpdate(); // forceUpdate is used because data does NOT live in state, so component needs to be manually told to update, as we are updating and fetching from localStorage rather than state
   }
 
   updateHistory(lastUsedId, incomingTransaction){
